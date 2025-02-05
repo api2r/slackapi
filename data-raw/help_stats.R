@@ -150,19 +150,36 @@ answer_stats <- answer_tags |>
 
 answer_stats
 
-answerable <- answer_tags |>
-  dplyr::filter(
-    message_datetime > lubridate::now() - lubridate::days(90),
-    !tagged_answered,
-    !waiting_for_asker
-  ) |>
-  dplyr::mutate(url = glue::glue("https://dslcio.slack.com/archives/{channel_id}/p{ts}")) |>
-  dplyr::select(channel_name, reply_count, url)
+# answerable <- answer_tags |>
+#   dplyr::filter(
+#     message_datetime > lubridate::now() - lubridate::days(90),
+#     !tagged_answered,
+#     !waiting_for_asker
+#   ) |>
+#   dplyr::mutate(url = glue::glue("https://dslcio.slack.com/archives/{.data$channel_id}/p{.data$ts}")) |>
+#   dplyr::select("channel_name", "reply_count", "url")
+#
+# answerable
+#
+# target_n <- 0L
+# target_n <- target_n + 1L
+# answerable |>
+#   dplyr::slice(target_n) |>
+#   dplyr::pull(url) |>
+#   browseURL()
+#
+# rm(answerable, tartget_n)
 
-answerable
-
-target_n <- 1L
-answerable |>
-  dplyr::slice(target_n) |>
-  dplyr::pull(url) |>
-  browseURL()
+rm(
+  answer_stats,
+  answer_tags,
+  channels,
+  convos_all,
+  help_convos,
+  threads_all,
+  threads_nested,
+  year_counts,
+  mentor_channel_id,
+  mentor_ids,
+  has_reaction
+)

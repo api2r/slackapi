@@ -1,3 +1,5 @@
+stop("Requires a re-made `users_info()` function.")
+
 convos <- conversations_history("C06DGLX8U4V") |>
   dplyr::arrange(ts) |>
   tidyr::unnest(pinned_info) |>
