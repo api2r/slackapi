@@ -1,5 +1,8 @@
 pkgload::load_all(".", helpers = FALSE, attach_testthat = FALSE)
 
+# TODO: Clear out archived PII for deleted users. User "U084PAXBFJR" has
+# requested deletion (via Slack), for example.
+
 users <- users_list(include_locale = TRUE) |>
   tidyr::unnest(profile) |>
   dplyr::select(
