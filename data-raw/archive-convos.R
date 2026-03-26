@@ -195,10 +195,13 @@ if (nrow(convo_changes)) {
           tidyr::unnest("edited", names_sep = "_") |>
           dplyr::select("ts", "edited_ts") |>
           dplyr::summarize(
-            change_ts = max(c(
-              as.double(.data$ts),
-              as.double(.data$edited_ts)
-            ), na.rm = TRUE),
+            change_ts = max(
+              c(
+                as.double(.data$ts),
+                as.double(.data$edited_ts)
+              ),
+              na.rm = TRUE
+            ),
             .by = "ts"
           ) |>
           dplyr::pull(.data$change_ts) |>

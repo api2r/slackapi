@@ -11,12 +11,14 @@
 #' @returns `users_list()`: A list of all users in the workspace. This includes
 #'   both invited users and deleted/deactivated users.
 #' @export
-users_list <- function(include_locale = FALSE,
-                       team_id = NULL,
-                       per_req = 200L,
-                       max_reqs = Inf,
-                       max_tries_per_req = 3,
-                       token = Sys.getenv("SLACK_API_TOKEN")) {
+users_list <- function(
+  include_locale = FALSE,
+  team_id = NULL,
+  per_req = 200L,
+  max_reqs = Inf,
+  max_tries_per_req = 3,
+  token = Sys.getenv("SLACK_API_TOKEN")
+) {
   req <- req_users_list(
     include_locale = include_locale,
     team_id = team_id,
@@ -34,23 +36,20 @@ users_list <- function(include_locale = FALSE,
 #' @rdname users_list
 #' @returns `req_users_list()`: A `httr2_request` request object that lists all
 #'   users in a Slack team.
-req_users_list <- function(include_locale = FALSE,
-                           team_id = NULL,
-                           per_req = 200L,
-                           token = Sys.getenv("SLACK_API_TOKEN")) {
-  include_locale <- stbl::to_lgl_scalar(
-    include_locale,
-    allow_null = FALSE
-  )
+req_users_list <- function(
+  include_locale = FALSE,
+  team_id = NULL,
+  per_req = 200L,
+  token = Sys.getenv("SLACK_API_TOKEN")
+) {
+  include_locale <- stbl::to_lgl_scalar(include_locale)
   per_req <- stbl::stabilize_int_scalar(
     per_req,
-    allow_null = FALSE,
-    allow_zero_length = FALSE,
     allow_na = FALSE,
     min_value = 1L,
     max_value = 999L
   )
-  team_id <- stbl::to_chr_scalar(team_id)
+  team_id <- stbl::to_chr_scalar(team_id, allow_null = TRUE)
   slack_req_prepare(
     path = "/users.list",
     method = "get",

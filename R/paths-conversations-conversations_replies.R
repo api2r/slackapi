@@ -22,16 +22,18 @@
 #'   conversation as a tibble. Note: The parent message is always included in
 #'   the response.
 #' @export
-conversations_replies <- function(channel,
-                                  ts,
-                                  latest = lubridate::now(),
-                                  oldest = 0,
-                                  inclusive = TRUE,
-                                  include_all_metadata = FALSE,
-                                  per_req = 200L,
-                                  max_reqs = Inf,
-                                  max_tries_per_req = 3,
-                                  token = Sys.getenv("SLACK_API_TOKEN")) {
+conversations_replies <- function(
+  channel,
+  ts,
+  latest = lubridate::now(),
+  oldest = 0,
+  inclusive = TRUE,
+  include_all_metadata = FALSE,
+  per_req = 200L,
+  max_reqs = Inf,
+  max_tries_per_req = 3,
+  token = Sys.getenv("SLACK_API_TOKEN")
+) {
   req <- req_conversations_replies(
     channel = channel,
     ts = ts,
@@ -54,34 +56,24 @@ conversations_replies <- function(channel,
 #' @returns `req_conversations_replies()`: A `httr2_request` request object to
 #'   retrieve a thread of messages posted to a conversation as a tibble. Note:
 #'   The parent message is always included in the response.
-req_conversations_replies <- function(channel,
-                                      ts,
-                                      latest = lubridate::now(),
-                                      oldest = 0,
-                                      inclusive = TRUE,
-                                      include_all_metadata = FALSE,
-                                      per_req = 200L,
-                                      token = Sys.getenv("SLACK_API_TOKEN")) {
-  channel <- stbl::to_chr_scalar(
-    channel,
-    allow_null = FALSE,
-    allow_zero_length = FALSE
-  )
+req_conversations_replies <- function(
+  channel,
+  ts,
+  latest = lubridate::now(),
+  oldest = 0,
+  inclusive = TRUE,
+  include_all_metadata = FALSE,
+  per_req = 200L,
+  token = Sys.getenv("SLACK_API_TOKEN")
+) {
+  channel <- stbl::to_chr_scalar(channel)
   ts <- as_slack_ts(ts)
   latest <- as_slack_ts(latest)
   oldest <- as_slack_ts(oldest)
-  inclusive <- stbl::to_lgl_scalar(
-    inclusive,
-    allow_null = FALSE
-  )
-  include_all_metadata <- stbl::to_lgl_scalar(
-    include_all_metadata,
-    allow_null = FALSE
-  )
+  inclusive <- stbl::to_lgl_scalar(inclusive)
+  include_all_metadata <- stbl::to_lgl_scalar(include_all_metadata)
   per_req <- stbl::stabilize_int_scalar(
     per_req,
-    allow_null = FALSE,
-    allow_zero_length = FALSE,
     allow_na = FALSE,
     min_value = 1L,
     max_value = 999L
