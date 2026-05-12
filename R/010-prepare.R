@@ -8,14 +8,16 @@
 #' @inheritParams nectar::req_prepare
 #' @inherit nectar::req_prepare return
 #' @keywords internal
-slack_req_prepare <- function(path,
-                              query = list(),
-                              body = NULL,
-                              method = NULL,
-                              pagination_fn = NULL,
-                              tidy_fn = nectar::resp_tidy_unknown,
-                              token = Sys.getenv("SLACK_API_TOKEN"),
-                              call = rlang::caller_env()) {
+slack_req_prepare <- function(
+  path,
+  query = list(),
+  body = NULL,
+  method = NULL,
+  pagination_fn = NULL,
+  tidy_fn = nectar::resp_tidy_unknown,
+  token = Sys.getenv("SLACK_API_TOKEN"),
+  call = rlang::caller_env()
+) {
   token <- .find_token(token, body, query)
   body <- .prepare_list(body)
   query <- .prepare_list(query)
@@ -25,9 +27,8 @@ slack_req_prepare <- function(path,
     query = query,
     body = body,
     method = method,
-    auth_fn = .slack_req_auth,
-    auth_args = list(token = token),
-    tidy_fn = tidy_fn,
+    auth = .slack_auth(token),
+    tidy_policy = nectar::tidy_policy_prepare(tidy_fn),
     pagination_fn = pagination_fn,
     call = call
   )

@@ -30,7 +30,7 @@ users_list <- function(
     max_reqs = max_reqs,
     max_tries_per_req = max_tries_per_req
   )
-  return(nectar::resp_tidy(resps))
+  return(nectar::resp_parse(resps))
 }
 
 #' @rdname users_list
