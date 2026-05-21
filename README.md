@@ -10,8 +10,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN
 status](https://www.r-pkg.org/badges/version/slackapi)](https://CRAN.R-project.org/package=slackapi)
 [![Codecov test
-coverage](https://codecov.io/gh/jonthegeek/slackapi/graph/badge.svg)](https://app.codecov.io/gh/jonthegeek/slackapi)
-[![R-CMD-check](https://github.com/jonthegeek/slackapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jonthegeek/slackapi/actions/workflows/R-CMD-check.yaml)
+coverage](https://codecov.io/gh/api2r/slackapi/graph/badge.svg)](https://app.codecov.io/gh/api2r/slackapi)
+[![R-CMD-check](https://github.com/api2r/slackapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/api2r/slackapi/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 A client to interact with the [Slack Web
@@ -25,7 +25,7 @@ You can install the development version of {slackapi} from
 
 ``` r
 # install.packages("pak")
-pak::pak("jonthegeek/slackapi")
+pak::pak("api2r/slackapi")
 ```
 
 ## Made with {beekeeper}
@@ -37,6 +37,5 @@ active, and this package will likely change a lot in the coming weeks.
 ## Code of Conduct
 
 Please note that the slackapi project is released with a [Contributor
-Code of
-Conduct](https://jonthegeek.github.io/slackapi/CODE_OF_CONDUCT.html). By
+Code of Conduct](https://slackapi.api2r.org/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.

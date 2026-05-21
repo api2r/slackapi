@@ -4,16 +4,16 @@
 \name{slackapi-package}
 \alias{slackapi}
 \alias{slackapi-package}
-\title{slackapi: `Slack Web API` Client}
+\title{slackapi: 'Slack Web API' Client}
 \description{
-A client to interact with the `Slack Web API` \url{https://api.slack.com/web}. The `Slack Web API` is an interface for querying information from and enacting change in a `Slack` workspace.
+A client to interact with the 'Slack Web API' \url{https://api.slack.com/web}. The 'Slack Web API' is an interface for querying information from and enacting change in a 'Slack' workspace.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/jonthegeek/slackapi}
-  \item \url{https://jonthegeek.github.io/slackapi/}
-  \item Report bugs at \url{https://github.com/jonthegeek/slackapi/issues}
+  \item \url{https://slackapi.api2r.org/}
+  \item \url{https://github.com/api2r/slackapi}
+  \item Report bugs at \url{https://github.com/api2r/slackapi/issues}
 }
 
 }

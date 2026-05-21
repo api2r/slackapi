@@ -1,16 +1,15 @@
 Package: slackapi
-Title: `Slack Web API` Client
+Title: 'Slack Web API' Client
 Version: 0.0.0.9000
 Authors@R:
     person("Jon", "Harmon", , "jonthegeek@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4781-4346"))
-Description: A client to interact with the `Slack Web API`
-    <https://api.slack.com/web>. The `Slack Web API` is an interface for
-    querying information from and enacting change in a `Slack` workspace.
+Description: A client to interact with the 'Slack Web API'
+    <https://api.slack.com/web>. The 'Slack Web API' is an interface for
+    querying information from and enacting change in a 'Slack' workspace.
 License: MIT + file LICENSE
-URL: https://github.com/jonthegeek/slackapi,
-    https://jonthegeek.github.io/slackapi/
-BugReports: https://github.com/jonthegeek/slackapi/issues
+URL: https://slackapi.api2r.org/, https://github.com/api2r/slackapi
+BugReports: https://github.com/api2r/slackapi/issues
 Imports:
     cli,
     dplyr,
@@ -26,10 +25,11 @@ Suggests:
     httptest2,
     testthat (>= 3.0.0)
 Remotes:
-    jonthegeek/nectar,
-    jonthegeek/stbl
+    api2r/nectar,
+    wranglezone/stbl,
+    wranglezone/tibblify
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
-Config/roxygen2/version: 8.0.0
