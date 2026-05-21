@@ -1,18 +1,18 @@
-# slackapi: \`Slack Web API\` Client
+# slackapi: 'Slack Web API' Client
 
-A client to interact with the \`Slack Web API\`
-<https://api.slack.com/web>. The \`Slack Web API\` is an interface for
-querying information from and enacting change in a \`Slack\` workspace.
+A client to interact with the 'Slack Web API'
+<https://api.slack.com/web>. The 'Slack Web API' is an interface for
+querying information from and enacting change in a 'Slack' workspace.
 
 ## See also
 
 Useful links:
 
-- <https://github.com/jonthegeek/slackapi>
+- <https://slackapi.api2r.org/>
 
-- <https://jonthegeek.github.io/slackapi/>
+- <https://github.com/api2r/slackapi>
 
-- Report bugs at <https://github.com/jonthegeek/slackapi/issues>
+- Report bugs at <https://github.com/api2r/slackapi/issues>
 
 ## Author
 

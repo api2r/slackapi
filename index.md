@@ -11,7 +11,7 @@ You can install the development version of {slackapi} from
 
 ``` r
 # install.packages("pak")
-pak::pak("jonthegeek/slackapi")
+pak::pak("api2r/slackapi")
 ```
 
 ## Made with {beekeeper}
@@ -23,6 +23,5 @@ active, and this package will likely change a lot in the coming weeks.
 ## Code of Conduct
 
 Please note that the slackapi project is released with a [Contributor
-Code of
-Conduct](https://jonthegeek.github.io/slackapi/CODE_OF_CONDUCT.html). By
+Code of Conduct](https://slackapi.api2r.org/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.

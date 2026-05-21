@@ -57,7 +57,7 @@ slack_req_prepare(
 
   (`function`) The pagination scheme to use. Currently either `NULL` (no
   pagination, the default) or `slack_pagination_cursor` to use
-  [`slack_pagination_cursor()`](https://jonthegeek.github.io/slackapi/reference/slack_pagination_cursor.md)
+  [`slack_pagination_cursor()`](https://slackapi.api2r.org/reference/slack_pagination_cursor.md)
   for `cursor`-based pagination. See [Pagination through
   collections](https://api.slack.com/apis/pagination) in the Slack API
   documentation. We do not currently support "Classic pagination".

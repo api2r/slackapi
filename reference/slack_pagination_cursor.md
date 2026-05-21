@@ -2,7 +2,7 @@
 
 Process a `resp` object to extract the next cursor, and build the next
 `req`. Use as the `pagination_fn` argument to
-[`slack_req_prepare()`](https://jonthegeek.github.io/slackapi/reference/slack_req_prepare.md).
+[`slack_req_prepare()`](https://slackapi.api2r.org/reference/slack_req_prepare.md).
 
 ## Usage
 

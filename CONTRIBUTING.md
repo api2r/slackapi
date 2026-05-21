@@ -24,7 +24,7 @@ help you write a unit test, if needed).
 
 - Fork the package and clone onto your computer. If you haven’t done
   this before, we recommend using
-  `usethis::create_from_github("jonthegeek/slackapi", fork = TRUE)`.
+  `usethis::create_from_github("api2r/slackapi", fork = TRUE)`.
 
 - Install all development dependencies with
   [`devtools::install_dev_deps()`](https://devtools.r-lib.org/reference/install_deps.html),
@@ -66,6 +66,5 @@ help you write a unit test, if needed).
 ## Code of Conduct
 
 Please note that the slackapi project is released with a [Contributor
-Code of
-Conduct](https://jonthegeek.github.io/slackapi/CODE_OF_CONDUCT.md). By
+Code of Conduct](https://slackapi.api2r.org/CODE_OF_CONDUCT.md). By
 contributing to this project you agree to abide by its terms.

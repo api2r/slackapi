@@ -8,15 +8,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/jonthegeek/slackapi/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/api2r/slackapi/blob/main/DESCRIPTION)
 
 Harmon J (2026). *slackapi: 'Slack Web API' Client*. R package version
-0.0.0.9000, <https://github.com/jonthegeek/slackapi>.
+0.0.0.9000, <https://slackapi.api2r.org/>.
 
     @Manual{,
-      title = {slackapi: `Slack Web API` Client},
+      title = {slackapi: 'Slack Web API' Client},
       author = {Jon Harmon},
       year = {2026},
       note = {R package version 0.0.0.9000},
-      url = {https://github.com/jonthegeek/slackapi},
+      url = {https://slackapi.api2r.org/},
     }
