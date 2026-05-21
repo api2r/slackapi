@@ -10,12 +10,14 @@ threads_all <- readRDS("data-raw/convos/threads_all.rds")
 
 if ("reply_count" %in% colnames(convos_all)) {
   convos_all$reply_count <- tidyr::replace_na(
-    convos_all$reply_count, 0L
+    convos_all$reply_count,
+    0L
   )
 }
 if ("reply_users_count" %in% colnames(convos_all)) {
   convos_all$reply_users_count <- tidyr::replace_na(
-    convos_all$reply_users_count, 0L
+    convos_all$reply_users_count,
+    0L
   )
 }
 
@@ -69,14 +71,20 @@ mentor_ids <- conversations_members(mentor_channel_id)
 
 has_reaction <- function(rxnses, posters, target_reactions) {
   purrr::map2_lgl(
-    rxnses, posters,
+    rxnses,
+    posters,
     \(rxns, poster) {
-      if (is.null(rxns)) return(FALSE)
+      if (is.null(rxns)) {
+        return(FALSE)
+      }
       any(
         purrr::map2_lgl(
-          rxns$name, rxns$users,
+          rxns$name,
+          rxns$users,
           \(rxn, reactors) {
-            rxn %in% target_reactions && any(c(poster, mentor_ids) %in% reactors)
+            rxn %in%
+              target_reactions &&
+              any(c(poster, mentor_ids) %in% reactors)
           }
         )
       )
@@ -115,7 +123,9 @@ answer_tags <- help_convos |>
       c("heavy_check_mark", "question-answered", "white_check_mark")
     ),
     asker_replied_last = purrr::map2_lgl(
-      .data$user, .data$replies, \(this_user, these_replies) {
+      .data$user,
+      .data$replies,
+      \(this_user, these_replies) {
         if (!NROW(these_replies)) {
           return(TRUE)
         }
@@ -131,7 +141,9 @@ answer_tags <- help_convos |>
       .data$user,
       c("speech_balloon", "question-more-info")
     ),
-    waiting_for_asker = !.data$tagged_answered & .data$tagged_more_info & !.data$asker_replied_last
+    waiting_for_asker = !.data$tagged_answered &
+      .data$tagged_more_info &
+      !.data$asker_replied_last
   )
 
 answer_stats <- answer_tags |>
@@ -139,30 +151,54 @@ answer_stats <- answer_tags |>
     .by = message_year,
     messages = dplyr::n(),
     has_replies = sum(.data$reply_count != 0),
-    p_has_replies = has_replies/messages * 100,
+    p_has_replies = has_replies / messages * 100,
     tagged_answered = sum(.data$tagged_answered),
-    p_tagged_answered = tagged_answered/messages * 100,
+    p_tagged_answered = tagged_answered / messages * 100,
     tagged_waiting_op = sum(.data$waiting_for_asker),
-    p_waiting_op = tagged_waiting_op/messages * 100,
+    p_waiting_op = tagged_waiting_op / messages * 100,
     p_waiting_us = 100 - p_tagged_answered - p_waiting_op
   ) |>
-  dplyr::select("message_year", "messages", "p_has_replies", "p_tagged_answered", "p_waiting_op", "p_waiting_us")
+  dplyr::select(
+    "message_year",
+    "messages",
+    "p_has_replies",
+    "p_tagged_answered",
+    "p_waiting_op",
+    "p_waiting_us"
+  )
 
 answer_stats
 
-answerable <- answer_tags |>
-  dplyr::filter(
-    message_datetime > lubridate::now() - lubridate::days(90),
-    !tagged_answered,
-    !waiting_for_asker
-  ) |>
-  dplyr::mutate(url = glue::glue("https://dslcio.slack.com/archives/{channel_id}/p{ts}")) |>
-  dplyr::select(channel_name, reply_count, url)
+# answerable <- answer_tags |>
+#   dplyr::filter(
+#     message_datetime > lubridate::now() - lubridate::days(90),
+#     !tagged_answered,
+#     !waiting_for_asker
+#   ) |>
+#   dplyr::mutate(url = glue::glue("https://dslcio.slack.com/archives/{.data$channel_id}/p{.data$ts}")) |>
+#   dplyr::select("channel_name", "reply_count", "url")
+#
+# answerable
+#
+# target_n <- 0L
+# target_n <- target_n + 1L
+# answerable |>
+#   dplyr::slice(target_n) |>
+#   dplyr::pull(url) |>
+#   browseURL()
+#
+# rm(answerable, tartget_n)
 
-answerable
-
-target_n <- 1L
-answerable |>
-  dplyr::slice(target_n) |>
-  dplyr::pull(url) |>
-  browseURL()
+rm(
+  answer_stats,
+  answer_tags,
+  channels,
+  convos_all,
+  help_convos,
+  threads_all,
+  threads_nested,
+  year_counts,
+  mentor_channel_id,
+  mentor_ids,
+  has_reaction
+)

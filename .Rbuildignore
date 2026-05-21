@@ -11,3 +11,7 @@
 ^data-raw$
 ^_beekeeper_rapid\.rds$
 ^_beekeeper\.yml$
+^\.positai$
+^\.claude$
+^[.]?air[.]toml$
+^\.vscode$

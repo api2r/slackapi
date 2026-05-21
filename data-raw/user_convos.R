@@ -1,3 +1,9 @@
+# Get private conversations (with active user), then filter to a specific
+# channel. This probably isn't generally useful, but I'm keeping it until I
+# parse out what *is* useful for an example/vignette.
+
+stop("Requires a re-made `users_info()` function.")
+
 convos <- conversations_history("C06DGLX8U4V") |>
   dplyr::arrange(ts) |>
   tidyr::unnest(pinned_info) |>
